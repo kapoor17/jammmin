@@ -2,13 +2,10 @@ import React from 'react';
 import "./TrackList.css"
 import Track from '../Track/Track';
 
-const TrackList = () => {
+const TrackList = ({tracks}) => {
     return (
         <div class="TrackList">
-            <Track/>
-            <Track/>
-            <Track/>
-            <Track/>
+            {tracks.map(track => <Track key={track.id} track={track}/>)}
         </div>
     );
 };
