@@ -1,14 +1,24 @@
 import React from 'react';
 import "./Track.css"
 
-const Track = ({track}) => {
+const Track = ({track, onAdd, onRemove, isRemoval}) => {
+    const addTrack = () => {
+        onAdd(track.id);
+    }
+
+    const removeTrack = () =>{
+        removeTrack(track.id);
+    }
+
     return (
-        <div class="Track">
-            <div class="Track-information">
+        <div className="Track">
+            <div className="Track-information">
                 <h3>{track.name}</h3>
                 <p>{track.artist} | {track.album}</p>
             </div>
-            <button class="Track-action">+/-</button>
+            {isRemoval ? 
+            <button className="Track-action" onClick={removeTrack}>"-"</button> :
+            <button className="Track-action" onClick={addTrack}>"+"</button>}
         </div>
     );
 };

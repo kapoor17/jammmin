@@ -2,12 +2,15 @@ import React from 'react';
 import "./Playlist.css"
 import TrackList from '../TrackList/TrackList';
 
-const Playlist = () => {
+const Playlist = ({playlistName, playlistTracks, onRemove, onNameChange, onSave}) => {
+    const handleNameChange = ({target}) => {        
+        onNameChange(target.value)
+    }
     return (
-        <div class="Playlist">
-            <input value="New Playlist"/>
-            <TrackList/>
-            <button class="Playlist-save">SAVE TO SPOTIFY</button>
+        <div className="Playlist">
+            <input value="New Playlist" onChange={handleNameChange}/>
+            <TrackList tracks = {playlistTracks} isRemove = {true} onRemove = {onRemove}/>
+            <button className="Playlist-save" onClick={onSave}>SAVE TO SPOTIFY</button>
         </div>
     );
 };

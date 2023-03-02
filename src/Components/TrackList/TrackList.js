@@ -2,10 +2,10 @@ import React from 'react';
 import "./TrackList.css"
 import Track from '../Track/Track';
 
-const TrackList = ({tracks}) => {
+const TrackList = ({tracks, onAdd, onRemove, isRemoval}) => {
     return (
-        <div class="TrackList">
-            {tracks.map(track => <Track key={track.id} track={track}/>)}
+        <div className="TrackList">
+            {tracks.map(track => <Track key = {track.id} track = {track} onAdd = {onAdd} onRemove = {onRemove} isRemoval = {isRemoval}/>)}
         </div>
     );
 };
