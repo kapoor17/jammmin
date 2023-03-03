@@ -3,11 +3,18 @@ import "./Track.css"
 
 const Track = ({track, onAdd, onRemove, isRemoval}) => {
     const addTrack = () => {
-        onAdd(track.id);
+        onAdd(track);
     }
 
     const removeTrack = () =>{
-        removeTrack(track.id);
+        onRemove(track);
+    }
+
+    const renderAction = () => {
+        if(isRemoval){
+            return <button className="Track-action" onClick={removeTrack}>-</button>
+        }
+        return <button className="Track-action" onClick={addTrack}>+</button>
     }
 
     return (
@@ -16,9 +23,7 @@ const Track = ({track, onAdd, onRemove, isRemoval}) => {
                 <h3>{track.name}</h3>
                 <p>{track.artist} | {track.album}</p>
             </div>
-            {isRemoval ? 
-            <button className="Track-action" onClick={removeTrack}>"-"</button> :
-            <button className="Track-action" onClick={addTrack}>"+"</button>}
+            {renderAction()}
         </div>
     );
 };

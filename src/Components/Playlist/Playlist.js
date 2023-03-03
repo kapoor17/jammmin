@@ -8,8 +8,8 @@ const Playlist = ({playlistName, playlistTracks, onRemove, onNameChange, onSave}
     }
     return (
         <div className="Playlist">
-            <input value="New Playlist" onChange={handleNameChange}/>
-            <TrackList tracks = {playlistTracks} isRemove = {true} onRemove = {onRemove}/>
+            <input defaultValue="New Playlist" onChange={handleNameChange}/>
+            <TrackList tracks = {playlistTracks} isRemoval = {true} onRemove = {onRemove}/>
             <button className="Playlist-save" onClick={onSave}>SAVE TO SPOTIFY</button>
         </div>
     );

@@ -2,6 +2,7 @@ import './App.css';
 import SearchBar from '../SearchBar/SearchBar';
 import SearchResult from '../SearchResult/SearchResult';
 import Playlist from '../Playlist/Playlist';
+import { Spotify } from '../../util/Spotify';
 import { useState } from 'react';
 
 const App = () => {
@@ -25,10 +26,13 @@ const App = () => {
 
   const savePlaylist = () => {
     const tracksURI = playlistTracks.map(track => track.uri);
+    Spotify.savePlaylist(tracksURI);
+    setPlaylistName("New Playlist");
+    setPlaylistTracks([]);  
   }
 
   const search = (term) => {
-    console.log(term);
+    Spotify.search(term).then(res => setSearchResult(res))
   }
 
   return (
