@@ -26,10 +26,10 @@ const App = () => {
 
   const savePlaylist = () => {
     const tracksURI = playlistTracks.map(track => track.uri);
-    Spotify.savePlaylist(playlistName, tracksURI);
-    console.log(tracksURI)
-    setPlaylistName("New Playlist");
-    setPlaylistTracks([]);  
+    Spotify.savePlaylist(playlistName, tracksURI).then(()=>{
+      setPlaylistName("New Playlist");
+      setPlaylistTracks([]);  
+    });
   }
 
   const search = (term) => {
