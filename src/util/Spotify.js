@@ -1,6 +1,6 @@
 let USER_ACCESS_TOKEN;
 const CLIENT_ID = '6772d444cfcd4b1a9920233e10ddd000';
-const REDIRECT_URL = "https://himanshukapoor.in";
+const REDIRECT_URL = "https://melody-app.surge.sh";
 
 
 export const Spotify = {
