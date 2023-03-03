@@ -69,7 +69,7 @@ export const Spotify = {
                     method : `POST`,
                     body : JSON.stringify({
                         name : PLAYLIST_NAME,
-                        description : "A Jammmin made playlist!"
+                        description : "A Melody made playlist!"
                     })
                 }).then(res => res.json())
                 .then(res => {
