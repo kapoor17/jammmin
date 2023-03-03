@@ -60,7 +60,7 @@ export const Spotify = {
         const headers = {Authorization : `Bearer ${USER_ACCESS_TOKEN}`}
         let userID ;
 
-        fetch(`https://api.spotify.com/v1/me`,{headers : headers})
+        return fetch(`https://api.spotify.com/v1/me`,{headers : headers})
             .then(res => res.json())
             .then(res => {
                 userID = res.id
@@ -74,7 +74,7 @@ export const Spotify = {
                 }).then(res => res.json())
                 .then(res => {
                     let playlistID = res.id;
-                    return fetch(`https://api.spotify.com/v1/playlists/${playlistID}/tracks`,{
+                    return fetch(`https://api.spotify.com/v1/users/${userID}/playlists/${playlistID}/tracks`,{
                         headers : headers,
                         method : `POST`,
                         body : JSON.stringify({
